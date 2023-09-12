@@ -3,11 +3,11 @@ package api
 import (
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/qingstor/qingstor-sdk-go/v4/config"
 	"github.com/qingstor/qingstor-sdk-go/v4/service"
+	uuid "github.com/satori/go.uuid"
 )
 
 var qy_access_key_id = "TUZFWDOWMDJANHJFQNAG"
@@ -20,7 +20,8 @@ func UpData(ctx *gin.Context) {
 	bucket, _ := qsService.Bucket("zzhh-server", "pek3b")
 
 	f, fheader, err := ctx.Request.FormFile("imgfile")
-	name := fmt.Sprintf("%d%s", time.Now().Unix(), fheader.Filename)
+	uid := uuid.NewV4()
+	name := fmt.Sprintf("%s%s", uid.String(), fheader.Filename)
 	if err != nil {
 		panic(err)
 	}

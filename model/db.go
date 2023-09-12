@@ -38,6 +38,7 @@ func InitDb() {
 			&BlogAuthor{},
 			&CheckCode{},
 			&Evd{},
+			&Share{},
 		)
 		if resErr != nil {
 			fmt.Println(resErr)

@@ -159,9 +159,9 @@ func GetUserInfo(c *gin.Context) {
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
-			"status":   code,
-			"msg":      errormessages.GetErrMsg(code),
-			"userinfo": userinfo,
+			"status": code,
+			"msg":    errormessages.GetErrMsg(code),
+			"data":   userinfo,
 		})
 	}
 }

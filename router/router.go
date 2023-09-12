@@ -63,6 +63,11 @@ func InitRouter() {
 		evd.POST("", api.AddEvd)
 		evd.GET("", api.GetAllEvd)
 	}
+	share := r.Group("share")
+	{
+		share.POST("/add", api.AddHare)
+		share.GET("/getAll", api.GetAllShare)
+	}
 
 	hell := r.Group("/test")
 
