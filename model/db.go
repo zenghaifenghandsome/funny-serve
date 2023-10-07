@@ -39,6 +39,7 @@ func InitDb() {
 			&CheckCode{},
 			&Evd{},
 			&Share{},
+			&Topic{},
 		)
 		if resErr != nil {
 			fmt.Println(resErr)

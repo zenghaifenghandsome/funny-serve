@@ -25,6 +25,12 @@ func InitRouter() {
 		registerRouter.POST("", api.AddUser)
 		registerRouter.POST("/code", api.CheckCode)
 	}
+	// topic
+	topicRouter := r.Group("/topic")
+	{
+		topicRouter.POST("", api.AddTopic)
+		topicRouter.GET("", api.GetTopicByType)
+	}
 
 	//登录
 	loginRouter := r.Group("/login")
